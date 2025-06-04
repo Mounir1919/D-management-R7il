@@ -45,11 +45,11 @@ class UserController extends Controller
         // Récupérer l'utilisateur connecté à partir de son email
         $user = User::where('email', $request->email)->FirstOrFail();
         // Créer un token API avec Laravel Sanctum pour authentifier les prochaines requêtes
-        $token =  $user->createToken('auth_token')->plainTextToken;
+        // $token =  $user->createToken('auth_token')->plainTextToken;
         return response()->json([
             'success' => "Utilisateur est connecte avec succes",
             'User' => $user,
-            'Token' => $token
+            // 'Token' => $token
         ], 201);
     }
     public function logout(Request $request)
